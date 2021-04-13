@@ -19,6 +19,7 @@ class NewsList extends List {
     get model() {
         return News;
     }
+
 }
 
 module.exports = {

@@ -5,6 +5,8 @@ const port = 3001;
 
 const server = require('http').createServer(app);
 
+const webScrapping = require('./webScrapping')
+
 const newsRoute = require('./routes/news');
 
 app.use("/api", newsRoute);
