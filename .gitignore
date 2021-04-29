@@ -1,2 +1,50 @@
 node_modules
+# **Server
 Server/node_modules
+
+# ** Client
+# compiled output
+Client/dist
+Client/tmp
+Client/out-tsc
+# Only exists if Bazel was run
+Client/bazel-out
+
+# dependencies
+Client/node_modules
+
+# profiling files
+Client/chrome-profiler-events*.json
+Client/speed-measure-plugin*.json
+
+# IDEs and editors
+Client/.idea
+Client/.project
+Client/.classpath
+Client/.c9/
+Client/*.launch
+Client/.settings/
+Client/*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
