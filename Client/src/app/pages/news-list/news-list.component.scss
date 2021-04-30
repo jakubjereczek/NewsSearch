@@ -1,0 +1,23 @@
+.inside_container {
+    margin-top: 10px;
+}
+
+img.news {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.columns {
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+ }
+
+.news_single_element {
+    min-width: 300px;
+    flex-grow: 1;
+}
+
+.inside_container:last-of-type {
+    margin-bottom: 31px;
+}

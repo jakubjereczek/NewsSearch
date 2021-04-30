@@ -12,15 +12,8 @@ import { HttpService } from './shared/services/http.service';
 })
 export class AppComponent {
 
-  loading = true;
-  error = false;
-  isSliderActive = false;
-
-  newsList: Array<News> = [];
-
   constructor(
     private router: Router,
-    private httpService: HttpService,
     private electronService: ElectronService,
   ) {
     console.log('AppConfig', AppConfig);
@@ -33,16 +26,9 @@ export class AppComponent {
     } else {
       console.log('Run in browser');
     }
-
-    httpService.getNews().subscribe((response) => {
-      this.newsList = response.data.models;
-      this.loading = false;
-    }), (error) => {
-      this.loading = false;
-      this.error = true;
-    }
   }
 
+  /*
   isMouseDown: boolean = false;
   startY: number = 0;
 
@@ -71,10 +57,6 @@ export class AppComponent {
       this.startY = event.clientY;
     }
   }
-
-
-
-
-
+*/
 
 }

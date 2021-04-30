@@ -1,7 +1,7 @@
 <div class="container is-flex is-fluid">
     <aside class="menu">
         <a class="navbar-item" routerLink="/">
-            <img src="/assets/logo.png" width="240">
+            <img src="/assets/logo.png" width="240" height="62">
         </a>
         <p class="menu-label">
             Funcjonalność
@@ -15,7 +15,9 @@
             Konfiguracja
         </p>
         <ul class="menu-list">
-            <li><a routerLink="/configuration" routerLinkActive="has-background-primary has-text-white">Konfiguracja
+
+            <li *ngIf="electronService.isElectron"><a routerLink="/configuration"
+                    routerLinkActive="has-background-primary has-text-white">Konfiguracja
                     widoku wyświetlanych newsów</a></li>
             <li><a>Kod Github</a></li>
         </ul>

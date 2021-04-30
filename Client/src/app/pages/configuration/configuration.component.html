@@ -1,1 +1,6 @@
-<p>configuration works!</p>
+<div class="inside_container" *ngIf="!loading">
+    <h3 class="title is-3">Konfiguracja</h3>
+    <h4 class="subtitle is-4">Ilość wyświetlanych elementów na jednej stronie w liscie newsów (1-10): </h4>
+    <input (input)="changeNewsLimit($event)" [value]="properties.newsLimit" class="input is-primary" type="number"
+        placeholder="Primary input">
+</div>
