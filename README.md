@@ -19,6 +19,7 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 |W\_FUN\_5|Podgląd wiadomości| Aplikacja umożliwa podgląd wiadomości. Jako użytkownik mam dostęp do przycisku wyświeltającego cały opis ogłoszenia. |2 (oczekiwana)|
 |W\_FUN\_6|Przejście do wiadomości oryginalnej|Aplikacja umożliwia przejście z wiadomości wyświetlanej w aplikacji do oryginalnego ogłoszenia. Jako użytkownik mogę przejść do strony wyświetlającej ogłosznie.|3 (dodatkowa)|
 |W\_FUN\_7|Kontrola blędów dotycząca pobierania danych z serwera.|Aplikacja wyświetli informacje gdy niemożliwe będzie pobranie danych z serwera udostępniajac przycisk – spróbuj ponownie.|2 (oczekiwana)|
+|W\_FUN\_7|Konfiguracja |Aplikacja umożliwia konfigurowanie opcji wyświetlania newsów - zapis konfiguracji w pliku json.|3 (dodatkowa)|
 
 2) **Wymagania niefuncjonalne**
 
