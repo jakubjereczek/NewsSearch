@@ -2,14 +2,32 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components';
 
-import { HomeRoutingModule } from './home/home-routing.module';
-import { DetailRoutingModule } from './detail/detail-routing.module';
+import { NewsListComponent } from './pages/news-list/news-list.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
+import { SavedNewsComponent } from './pages/saved-news/saved-news.component';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/news-list',
     pathMatch: 'full'
+  },
+  {
+    path: 'news-list',
+    component: NewsListComponent
+  },
+  {
+    path: 'saved-news',
+    component: SavedNewsComponent
+  },
+  {
+    path: 'news-details/:news',
+    component: NewsDetailsComponent
+  },
+  {
+    path: 'configuration',
+    component: ConfigurationComponent
   },
   {
     path: '**',
@@ -20,8 +38,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-    HomeRoutingModule,
-    DetailRoutingModule
   ],
   exports: [RouterModule]
 })

@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HomeModule } from './home/home.module';
-import { DetailModule } from './detail/detail.module';
-
 import { AppComponent } from './app.component';
+import { NewsListComponent } from './pages/news-list/news-list.component';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
+import { SavedNewsComponent } from './pages/saved-news/saved-news.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -22,15 +23,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NewsListComponent, ConfigurationComponent, NewsDetailsComponent, SavedNewsComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     CoreModule,
     SharedModule,
-    HomeModule,
-    DetailModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -43,4 +42,4 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
