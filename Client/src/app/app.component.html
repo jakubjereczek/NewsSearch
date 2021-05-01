@@ -1,15 +1,15 @@
 <div class="container is-flex is-fluid">
     <aside class="menu">
         <a class="navbar-item" routerLink="/">
-            <img src="/assets/logo.png" width="240" height="62">
+            <img src="/assets/logo.png" width="180" height="42">
         </a>
         <p class="menu-label">
             Funcjonalność
         </p>
         <ul class="menu-list">
-            <li><a routerLink="/news-list" routerLinkActive="has-background-primary has-text-white">Lista newsów</a>
+            <li><a routerLink="/news-list" routerLinkActive="has-background-success has-text-white">Lista newsów</a>
             </li>
-            <li><a routerLink="/saved" routerLinkActive="has-background-primary has-text-white">Zapisane newsy</a></li>
+            <li><a routerLink="/saved" routerLinkActive="has-background-success has-text-white">Zapisane newsy</a></li>
         </ul>
         <p class="menu-label">
             Konfiguracja
@@ -17,12 +17,12 @@
         <ul class="menu-list">
 
             <li *ngIf="electronService.isElectron"><a routerLink="/configuration"
-                    routerLinkActive="has-background-primary has-text-white">Konfiguracja
+                    routerLinkActive="has-background-success has-text-white">Konfiguracja
                     widoku wyświetlanych newsów</a></li>
             <li><a>Kod Github</a></li>
         </ul>
     </aside>
-    <main class="has-background-primary">
+    <main class="has-background-success">
         <router-outlet></router-outlet>
     </main>
     <footer>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { timeStamp } from 'console';
 import { electron } from 'process';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { ElectronService } from '../../core/services';
 import News from '../../shared/models/news';
 import { ConfigurationService } from '../../shared/services/configuration.service';
@@ -15,7 +18,7 @@ import { HttpService } from '../../shared/services/http.service';
 export class NewsListComponent implements OnInit {
 
   newsList: Array<News> = [];
-
+  noHiddenNewsList: Array<News> = [];
   loading = true;
   error = false;
 
@@ -38,6 +41,8 @@ export class NewsListComponent implements OnInit {
     httpService.getNews().subscribe(
       res => {
         this.newsList = res.data.models;
+        this.noHiddenNewsList = this.newsList.filter(news => !news.isHidden);
+
         this.loading = false;
       },
       err => {
@@ -74,7 +79,37 @@ export class NewsListComponent implements OnInit {
     }, 0);
   }
 
+
+  filterByName(text) {
+    this.newsList = this.newsList.map((news) => {
+      if (!news.title.toLowerCase().includes(text.toLowerCase())) {
+        news.isHidden = true;
+      } else {
+        news.isHidden = false;
+      }
+      return news;
+    })
+    this.noHiddenNewsList = this.newsList.filter(news => !news.isHidden);
+    this.after = 0;
+    this.currentSite = 1;
+
+    // Muszę dodac wlasciwosc display i wyszukiwać wzgledem niej, a nie podmieniać.
+    this.isChanging = false;
+  }
+
+  private inputSearchValue: Subject<string> = new Subject();
+
   ngOnInit(): void {
+    this.inputSearchValue.pipe(
+      debounceTime(250)
+    ).subscribe(searchTextValue => {
+      this.filterByName(searchTextValue);
+    });
+  }
+
+  onKeyUp(searchTextValue: string) {
+    this.isChanging = true;
+    this.inputSearchValue.next(searchTextValue);
   }
 
 }

@@ -2,7 +2,7 @@
 # News Search
 
 #### News Search - aplikacja wyszukiwująca newsy!
-> Aplikacja wyszukiwuje newsy z trzech największych portali (za pomocą Web Scrappingu) i zestawia je w desktopowej aplikacji.
+> Aplikacja wyszukiwuje newsy z trzech największych portali (za pomocą Web Scrappingu) i zestawia je w desktopowej aplikacji. Aplikacja umożliwia wyświetlanie listy newsów, fitrowanie jej, wyświetlanie szczegółowych informacji - wraz z opcją przejścia do strony na której news został upublikowany oraz dodanie do listy ulubionych. W aplikacji dostępna jest również mała konfiguracja - dane tej konfiguracji zapisane są w pliku oraz ładowane przy każdym uruchomieniu aplikacji.
 
 ## Specyfikacja wymagań
 
@@ -19,6 +19,7 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 |W\_FUN\_5|Podgląd wiadomości| Aplikacja umożliwa podgląd wiadomości. Jako użytkownik mam dostęp do przycisku wyświeltającego cały opis ogłoszenia. |2 (oczekiwana)|
 |W\_FUN\_6|Przejście do wiadomości oryginalnej|Aplikacja umożliwia przejście z wiadomości wyświetlanej w aplikacji do oryginalnego ogłoszenia. Jako użytkownik mogę przejść do strony wyświetlającej ogłosznie.|3 (dodatkowa)|
 |W\_FUN\_7|Kontrola blędów dotycząca pobierania danych z serwera.|Aplikacja wyświetli informacje gdy niemożliwe będzie pobranie danych z serwera udostępniajac przycisk – spróbuj ponownie.|2 (oczekiwana)|
+|W\_FUN\_8|Konfiguracja |Aplikacja umożliwia konfigurowanie opcji wyświetlania newsów - zapis konfiguracji w pliku json.|3 (dodatkowa)|
 
 2) **Wymagania niefuncjonalne**
 
@@ -29,4 +30,20 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 |W\_NIEFUN\_3|1 - projektowe|Wolność oprogramowania|Dostarczane przez nas oprogamowanie jest wolne, kod jest otwarty i ogólnodostepny|1 (wymagane)|
 |W\_NIEFUN\_4|1 - projektowe|Kompatybilność |Oprogramowanie klienckie dostępne i działające na konkurencyjnych systemach operacyjnych|2 (oczekiwane)|
 |W\_NIEFUN\_5|4 – ergonomia UI |Design|Prosty, lecz dobrze wyglądający interfejs użytkownika, który w sposób intuicyjny pozwoli na wykorzystywanie funkcji.|3 (dodatkowa)|
+
+## Stack technologiczny
+
+### Client
+- electron.js
+- angular (https://github.com/maximegris/angular-electron)
+- bulma css framework
+- scss 
+- node.js
+
+### Server
+- node.js,
+- express.js,
+- crawler
+
+
 

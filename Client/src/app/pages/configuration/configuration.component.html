@@ -1,6 +1,21 @@
-<div class="inside_container" *ngIf="!loading">
-    <h3 class="title is-3">Konfiguracja</h3>
-    <h4 class="subtitle is-4">Ilość wyświetlanych elementów na jednej stronie w liscie newsów (1-10): </h4>
-    <input (input)="changeNewsLimit($event)" [value]="properties.newsLimit" class="input is-primary" type="number"
-        placeholder="Primary input">
-</div>
+<section class="hero is-success inside_container">
+    <div class="hero-body">
+        <p class="title">
+            Konfiguracja
+        </p>
+        <p class="subtitle">
+            Sekcja pozwala na konfiguracje aplikacji względem własnych preferencji
+        </p>
+    </div>
+</section>
+<section class="inside_container" *ngIf="!loading">
+    <div class="columns">
+        <div class="column is-12">
+            <div class="box">
+                <h5 class="title is-5">Ilość wyświetlanych elementów na jednej stronie w liscie newsów (1-10): </h5>
+                <input (input)="changeNewsLimit($event)" [value]="properties.newsLimit" class="input is-primary"
+                    type="number" placeholder="Primary input">
+            </div>
+        </div>
+    </div>
+</section>

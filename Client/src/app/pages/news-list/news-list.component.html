@@ -2,37 +2,48 @@
 </div>
 
 <ng-template #isError>
+    <div class="loading-wrapper" *ngIf="!loading">
+        <progress style="position: absolute; bottom: 50%; left: 0" class="progress is-small is-primary"
+            max="100">15%</progress>
+    </div>
     <div class="notification is-danger" *ngIf="!loading">
-        Wystąpił problem w czasie ładowania danych. Prawdopodonie mamy problem z polączniem sie z serwerem lub nie masz
+        Wystąpił problem w czasie ładowania danych. Prawdopodonie mamy problem z polączniem sie z serwerem lub nie
+        masz
         dostępu do internetu. <a (click)="reloadCompontent()">Kliknij
             tutaj</a>, aby spróbuować ponownie.
     </div>
 </ng-template>
 
 <ng-template #noErrors>
-    <div class="inside_container">
-        <h3 class="title is-3">Lista newsów</h3>
-        <h4 class="subtitle is-4">Dane zostały pobrane z serwera. Poniżej została wyświetlona lista aktualnych newsów z
-            największych portali informacyjnych w Polsce.</h4>
-    </div>
-    <div class="inside_container">
-        <h5 class="title is-5">Użyj wyszukiwarki by filtrować poniższe wyniki: </h5>
+    <section class="hero is-success inside_container">
+        <div class="hero-body">
+            <p class="title">
+                Lista newsów
+            </p>
+            <p class="subtitle">
+                Poniżej została wyświetlona lista aktualnych newsów z
+                największych portali informacyjnych w Polsce. Enjoyed.
+            </p>
+        </div>
+    </section>
+    <section class="inside_container">
+        <h5 class="title is-5 has-text-white">Użyj wyszukiwarki by filtrować poniższe wyniki: </h5>
         <div class="searcher">
-            <input class="input is-primary is-rounded" type="text"
+            <input #searcher (keyup)="onKeyUp(searcher.value)" class="input is-success" type="text"
                 placeholder="Wyszukaj względem słów kluczowych bądz fragmentu tekstu">
         </div>
-    </div>
-    <div class="inside_container">
+    </section>
+    <section class="inside_container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h5 class="title is-5">Lista aktualnych newsów: </h5>
+                <h5 class="title is-5 has-text-white">Lista aktualnych newsów: </h5>
                 <div class="box">
                     <ng-container *ngIf="!isChanging">
                         <div>
                             <div class="columns">
                                 <ng-container *ngFor="let news of newsList; let i = index">
                                     <div class="column is-4 news_single_element"
-                                        *ngIf="i >= after && i < newsLimit+after">
+                                        *ngIf="!news.isHidden && (i >= after && i < newsLimit+after)">
                                         <div class="columns box" style="margin: 5px;">
                                             <div class="column is-12">
                                                 <p class="title">{{news.title}}</p>
@@ -44,7 +55,7 @@
                                                 </div>
                                                 <div class="content-button">
                                                     <button
-                                                        class="button is-primary flex is-light is-align-items-flex-end	">Więcej</button>
+                                                        class="button is-success flex is-light is-align-items-flex-end">Więcej</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -56,17 +67,18 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="inside_container">
+    </section>
+    <section class="inside_container">
+        <!-- Działam tutaj na noHiddenNewsList, a nie na newstList bo pracuje na indexach i szybciej było stworzyć nową listę niż filtorwac poprzednią. -->
         <nav class="pagination is-centered fixed" role="navigation" aria-label="pagination">
             <button class="pagination-previous" [disabled]="currentSite == 1"
                 (click)="changeSiteByPreviousOrNextButton(-1)">Poprzedni
             </button>
-            <button class="pagination-next" [disabled]="currentSite >= newsList.length/newsLimit"
+            <button class="pagination-next" [disabled]="currentSite >= noHiddenNewsList.length/newsLimit"
                 (click)="changeSiteByPreviousOrNextButton(1)">Następny
             </button>
             <ul class="pagination-list">
-                <ng-container *ngFor="let news of newsList; let i = index">
+                <ng-container *ngFor="let news of noHiddenNewsList; let i = index">
                     <li *ngIf="i%newsLimit == 0 && 
                   (((i/newsLimit)-currentSite) < 2) && (((i/newsLimit) + 4) > currentSite) 
                   ">
@@ -78,6 +90,5 @@
                 </ng-container>
             </ul>
         </nav>
-    </div>
-
+    </section>
 </ng-template>

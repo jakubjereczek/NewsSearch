@@ -4,5 +4,6 @@ export default interface News {
     description: string,
     category: string,
     link: string,
-    image_url: string
+    image_url: string,
+    isHidden: boolean, // Wlaściwość wprowadzona do filtorwania
 }

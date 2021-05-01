@@ -12,4 +12,4 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, TranslateModule, FormsModule],
   exports: [TranslateModule, WebviewDirective, FormsModule]
 })
-export class SharedModule {}
+export class SharedModule { }
