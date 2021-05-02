@@ -13,7 +13,7 @@ let newsList = new NewsList([{
     image_url: "https://ocdn.eu/pulscms-transforms/1/666k9kpTURBXy9kM2RhMmZhN2M1MDI4NGMwOGQ2MmZlYTBiOGE3YjI4NC5qcGeSlQMAH80D6M0CMpMFzQMCzQGQgaEwBQ"
 },
 {
-    id: 0,
+    id: 1,
     title: "USA: CDC i FDA apelują o wstrzymanie szczepień preparatem Johnson & Johnson.",
     description: "Obecnie nie ma żadnego związku między stwierdzonymi zakrzepami krwi a podaniem szczepionki przeciw COVID-19 firmy Johnson & Johnson - oświadczyła zaledwie kilka dni temu Amerykańska Agencja Żywności i Leków (FDA). Dziś agencja wraz z CDC wezwały do ​​natychmiastowego przerwania stosowania preparatu. Powodem jest sześć przypadków zakrzepów u kobiet.",
     category: "Zdrowie",
@@ -22,7 +22,7 @@ let newsList = new NewsList([{
     image_url: "https://ocdn.eu/pulscms-transforms/1/666k9kpTURBXy9kM2RhMmZhN2M1MDI4NGMwOGQ2MmZlYTBiOGE3YjI4NC5qcGeSlQMAH80D6M0CMpMFzQMCzQGQgaEwBQ"
 },
 {
-    id: 0,
+    id: 2,
     title: "USA: CDC i FDA apelują o wstrzymanie szczepień preparatem Johnson & Johnson.",
     description: "Obecnie nie ma żadnego związku między stwierdzonymi zakrzepami krwi a podaniem szczepionki przeciw COVID-19 firmy Johnson & Johnson - oświadczyła zaledwie kilka dni temu Amerykańska Agencja Żywności i Leków (FDA). Dziś agencja wraz z CDC wezwały do ​​natychmiastowego przerwania stosowania preparatu. Powodem jest sześć przypadków zakrzepów u kobiet.",
     category: "Zdrowie",
@@ -31,7 +31,7 @@ let newsList = new NewsList([{
     image_url: "https://ocdn.eu/pulscms-transforms/1/666k9kpTURBXy9kM2RhMmZhN2M1MDI4NGMwOGQ2MmZlYTBiOGE3YjI4NC5qcGeSlQMAH80D6M0CMpMFzQMCzQGQgaEwBQ"
 },
 {
-    id: 0,
+    id: 3,
     title: "USA: CDC i FDA apelują o wstrzymanie szczepień preparatem Johnson & Johnson.",
     description: "Obecnie nie ma żadnego związku między stwierdzonymi zakrzepami krwi a podaniem szczepionki przeciw COVID-19 firmy Johnson & Johnson - oświadczyła zaledwie kilka dni temu Amerykańska Agencja Żywności i Leków (FDA). Dziś agencja wraz z CDC wezwały do ​​natychmiastowego przerwania stosowania preparatu. Powodem jest sześć przypadków zakrzepów u kobiet.",
     category: "Zdrowie",
@@ -40,7 +40,7 @@ let newsList = new NewsList([{
     image_url: "https://ocdn.eu/pulscms-transforms/1/666k9kpTURBXy9kM2RhMmZhN2M1MDI4NGMwOGQ2MmZlYTBiOGE3YjI4NC5qcGeSlQMAH80D6M0CMpMFzQMCzQGQgaEwBQ"
 },
 {
-    id: 0,
+    id: 4,
     title: "USA: CDC i FDA apelują o wstrzymanie szczepień preparatem Johnson & Johnson.",
     description: "Obecnie nie ma żadnego związku między stwierdzonymi zakrzepami krwi a podaniem szczepionki przeciw COVID-19 firmy Johnson & Johnson - oświadczyła zaledwie kilka dni temu Amerykańska Agencja Żywności i Leków (FDA). Dziś agencja wraz z CDC wezwały do ​​natychmiastowego przerwania stosowania preparatu. Powodem jest sześć przypadków zakrzepów u kobiet.",
     category: "Zdrowie",

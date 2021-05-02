@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ElectronService } from '../../core/services';
 import News from '../../shared/models/news';
+import { SavedNewsService } from '../../shared/services/saved-news.service';
 
 @Component({
   selector: 'app-news-details',
@@ -17,7 +18,8 @@ export class NewsDetailsComponent implements OnInit {
   @ViewChild('modal') modal: ElementRef<HTMLElement>;
 
 
-  constructor(private electronService: ElectronService) {
+  constructor(private electronService: ElectronService,
+    private savedNewsService: SavedNewsService) {
     // const BrowserWindow = electronService.browserWindow;
     // const win = new BrowserWindow({ titleBarStyle: 'hidden' })
     // win.show()
@@ -43,6 +45,18 @@ export class NewsDetailsComponent implements OnInit {
 
   openWebsiteInNewWindow() {
     window.open(this.news.link, '_blank', 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
+  }
+
+  saveNews(news: News) {
+    this.savedNewsService.addNewsToLocalStorage(news);
+  }
+
+  isNewsSaved(news: News) {
+    return this.savedNewsService.isNewsSaved(news);
+  }
+
+  deleteNews(news: News) {
+    this.savedNewsService.removeNewsFromLocalStorage(news);
   }
 
 }

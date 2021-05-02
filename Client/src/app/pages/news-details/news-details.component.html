@@ -15,7 +15,17 @@
         </section>
         <footer class="modal-card-foot">
             <button (click)="openWebsiteInNewWindow()" class="button is-warning">Otwórz w nowej karcie</button>
-            <button class="button is-success">Dodaj do ulubionych</button>
+
+            <div *ngIf="!isNewsSaved(news) then toSave else isSave;"></div>
+
+            <ng-template #toSave>
+                <button (click)="saveNews(news)" class="button is-success">Dodaj do
+                    ulubionych</button>
+            </ng-template>
+            <ng-template #isSave>
+                <button (click)="deleteNews(news)" class="button is-danger">Usuń z
+                    ulubionych</button>
+            </ng-template>
         </footer>
     </div>
 </div>
