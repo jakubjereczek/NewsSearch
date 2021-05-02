@@ -19,7 +19,7 @@
             <li *ngIf="electronService.isElectron"><a routerLink="/configuration"
                     routerLinkActive="has-background-success has-text-white">Konfiguracja
                     widoku wyświetlanych newsów</a></li>
-            <li><a>Kod Github</a></li>
+            <li (click)="openGithub()"><a>Kod Github</a></li>
         </ul>
     </aside>
     <main class="has-background-success">

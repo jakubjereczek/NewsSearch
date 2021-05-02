@@ -1,1 +1,21 @@
-<p>news-details works!</p>
+<div class="modal is-active" #modal>
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{returnTitle()}}</p>
+            <button class="delete" aria-label="close" (click)="closeModal()"></button>
+        </header>
+        <section class="modal-card-body">
+            <h5 class="title is-5">{{news.title}}</h5>
+            <h6 class="subtitle is-6">{{news.description}}</h6>
+
+            <!-- <iframe [src]="news.link | safe"></iframe> -->
+            <webview src="{{news.link}}"></webview>
+
+        </section>
+        <footer class="modal-card-foot">
+            <button (click)="openWebsiteInNewWindow()" class="button is-warning">Otwórz w nowej karcie</button>
+            <button class="button is-success">Dodaj do ulubionych</button>
+        </footer>
+    </div>
+</div>

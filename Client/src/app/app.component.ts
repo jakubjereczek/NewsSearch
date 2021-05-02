@@ -59,4 +59,8 @@ export class AppComponent {
   }
 */
 
+  openGithub() {
+    window.open('https://github.com/jakubjereczek/NewsSearch', '_blank', 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
+  }
+
 }

@@ -22,6 +22,9 @@ export class NewsListComponent implements OnInit {
   loading = true;
   error = false;
 
+  isModalActive = false;
+  newsInModal: News = null;
+
   newsLimit: number = 0; // Ilość wyświetlanych elementów jednorazowo na stronie
   currentSite = 1; // Aktualna strona
   after = 0; // Ilosć elementów wyświetlonych wcześniej.
@@ -36,7 +39,7 @@ export class NewsListComponent implements OnInit {
     if (electronService.isElectron) {
       this.getConfigurationValues();
     } else {
-      this.newsLimit = 4; // Domysla wartość w przypadku uzywania aplikacji jako przeglądarkowej bez dostepu do fs.
+      this.newsLimit = this.configurationService.properties.value.newsLimit; // Domysla wartość w przypadku uzywania aplikacji jako przeglądarkowej bez dostepu do fs.
     }
     httpService.getNews().subscribe(
       res => {
@@ -75,10 +78,8 @@ export class NewsListComponent implements OnInit {
     this.after = (this.currentSite - 1) * this.newsLimit;
     setTimeout(() => {
       this.isChanging = false;
-
     }, 0);
   }
-
 
   filterByName(text) {
     this.newsList = this.newsList.map((news) => {
@@ -111,5 +112,17 @@ export class NewsListComponent implements OnInit {
     this.isChanging = true;
     this.inputSearchValue.next(searchTextValue);
   }
+
+  // Modal
+  openModal(news: News) {
+    this.newsInModal = news;
+    this.isModalActive = true;
+  }
+
+  clearModal() {
+    this.newsInModal = null;
+    this.isModalActive = false;
+  }
+
 
 }

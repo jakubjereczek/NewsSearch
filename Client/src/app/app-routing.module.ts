@@ -22,10 +22,6 @@ const routes: Routes = [
     component: SavedNewsComponent
   },
   {
-    path: 'news-details/:news',
-    component: NewsDetailsComponent
-  },
-  {
     path: 'configuration',
     component: ConfigurationComponent
   },

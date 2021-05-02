@@ -16,6 +16,7 @@ import { NewsListComponent } from './pages/news-list/news-list.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 import { SavedNewsComponent } from './pages/saved-news/saved-news.component';
+import { SafePipe } from './shared/pipe/safe.pipe';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -23,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent, NewsListComponent, ConfigurationComponent, NewsDetailsComponent, SavedNewsComponent],
+  declarations: [AppComponent, NewsListComponent, ConfigurationComponent, NewsDetailsComponent, SavedNewsComponent, SafePipe],
   imports: [
     BrowserModule,
     FormsModule,

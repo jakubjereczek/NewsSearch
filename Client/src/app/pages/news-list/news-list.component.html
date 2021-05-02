@@ -55,7 +55,8 @@
                                                 </div>
                                                 <div class="content-button">
                                                     <button
-                                                        class="button is-success flex is-light is-align-items-flex-end">Więcej</button>
+                                                        class="button is-success flex is-light is-align-items-flex-end"
+                                                        (click)="openModal(news)">Więcej</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +84,7 @@
                   (((i/newsLimit)-currentSite) < 2) && (((i/newsLimit) + 4) > currentSite) 
                   ">
                         <a [className]="currentSite == ((i/newsLimit)+1) ? 'pagination-link is-current' : 'pagination-link'"
-                            (click)="changeSiteByNumberButton((i/newsLimit)+1)">
+                            (click)="changeSiteByNumberButton((i/newsLimit)+1);">
                             {{(i/newsLimit) +1}}
                         </a>
                     </li>
@@ -92,3 +93,9 @@
         </nav>
     </section>
 </ng-template>
+
+<div *ngIf="isModalActive">
+    <!-- Warunkowe renderowanie modalu w przypadku wybrania Newsa -->
+    <app-news-details [news]="newsInModal" [clearModal]="clearModal.bind(this)">
+    </app-news-details>
+</div>

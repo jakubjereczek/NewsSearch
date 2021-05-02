@@ -8,7 +8,7 @@ import { ElectronService } from '../../core/services';
 export class ConfigurationService {
 
   public properties = new BehaviorSubject({
-    newsLimit: 3
+    newsLimit: 6
   });
 
   constructor(private electronService: ElectronService) {
