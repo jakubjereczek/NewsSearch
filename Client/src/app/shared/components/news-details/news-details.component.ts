@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ElectronService } from '../../core/services';
-import News from '../../shared/models/news';
-import { SavedNewsService } from '../../shared/services/saved-news.service';
+import { ElectronService } from '../../../core/services';
+import News from '../../models/news';
+import { SavedNewsService } from '../../services/saved-news.service';
 
 @Component({
   selector: 'app-news-details',
@@ -52,6 +52,7 @@ export class NewsDetailsComponent implements OnInit {
   }
 
   isNewsSaved(news: News) {
+    console.log(this.savedNewsService.isNewsSaved(news))
     return this.savedNewsService.isNewsSaved(news);
   }
 

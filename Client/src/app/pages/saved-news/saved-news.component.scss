@@ -1,3 +1,22 @@
 .inside_container {
     margin-top: 10px;
 }
+
+.hero-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.columns {
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+}
+
+.media-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification {
+    width: 100%;
+}

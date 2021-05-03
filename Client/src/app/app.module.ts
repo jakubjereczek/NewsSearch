@@ -14,7 +14,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { NewsListComponent } from './pages/news-list/news-list.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
-import { NewsDetailsComponent } from './pages/news-details/news-details.component';
+import { NewsDetailsComponent } from './shared/components/news-details/news-details.component';
 import { SavedNewsComponent } from './pages/saved-news/saved-news.component';
 import { SafePipe } from './shared/pipe/safe.pipe';
 

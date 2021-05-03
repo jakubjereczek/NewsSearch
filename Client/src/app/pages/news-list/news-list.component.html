@@ -2,16 +2,18 @@
 </div>
 
 <ng-template #isError>
-    <div class="loading-wrapper" *ngIf="!loading">
+    <div class="loading-wrapper" *ngIf="loading; else notificationError">
         <progress style="position: absolute; bottom: 50%; left: 0" class="progress is-small is-primary"
             max="100">15%</progress>
     </div>
-    <div class="notification is-danger" *ngIf="!loading">
-        Wystąpił problem w czasie ładowania danych. Prawdopodonie mamy problem z polączniem sie z serwerem lub nie
-        masz
-        dostępu do internetu. <a (click)="reloadCompontent()">Kliknij
-            tutaj</a>, aby spróbuować ponownie.
-    </div>
+    <ng-template #notificationError>
+        <div class="notification is-danger" *ngIf="!loading">
+            Wystąpił problem w czasie ładowania danych. Prawdopodonie mamy problem z polączniem sie z serwerem lub nie
+            masz
+            dostępu do internetu. <a (click)="reloadCompontent()">Kliknij
+                tutaj</a>, aby spróbuować ponownie.
+        </div>
+    </ng-template>
 </ng-template>
 
 <ng-template #noErrors>

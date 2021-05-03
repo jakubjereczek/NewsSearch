@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components';
 
 import { NewsListComponent } from './pages/news-list/news-list.component';
-import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 import { SavedNewsComponent } from './pages/saved-news/saved-news.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 
