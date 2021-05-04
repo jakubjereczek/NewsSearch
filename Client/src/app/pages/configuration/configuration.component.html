@@ -16,6 +16,16 @@
                 <input (input)="changeNewsLimit($event)" [value]="properties.newsLimit" class="input is-primary"
                     type="number" placeholder="Primary input">
             </div>
+
+            <div class="box">
+                <h5 class="title is-5">Ilość wyświetlanych pojedyńczo elementów w sekcji zapisanych newsów (1-10)
+                </h5>
+                <h6 class="subtitle is-6">(liczba
+                    rownież odpowiada liscie renderowanych elementów po naciśnięciu przycisku wyświetl więcej)</h6>
+                <input (input)="changeNumberOfDisplayedSavedNews($event)"
+                    [value]="properties.numberOfDisplayedSavedNews" class="input is-primary" type="number"
+                    placeholder="Primary input">
+            </div>
         </div>
     </div>
 </section>

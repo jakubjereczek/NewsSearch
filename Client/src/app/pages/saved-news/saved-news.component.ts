@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ElectronService } from '../../core/services';
 import News from '../../shared/models/news';
+import { ConfigurationService } from '../../shared/services/configuration.service';
 import { SavedNewsService } from '../../shared/services/saved-news.service';
 
 @Component({
@@ -15,8 +17,18 @@ export class SavedNewsComponent implements OnInit {
   isModalActive = false;
   newsInModal: News = null;
 
-  constructor(private savedNewsService: SavedNewsService) {
+  numberOfDisplayedSavedNews = 0; // Ilość wyswietlanych elementów jednorazowo
+
+  constructor(
+    private savedNewsService: SavedNewsService,
+    private electronService: ElectronService,
+    private configurationService: ConfigurationService) {
     this.$savedNews = this.savedNewsService.getSavedNewsObservable();
+    if (electronService.isElectron) {
+      this.getConfigurationValues();
+    } else {
+      this.numberOfDisplayedSavedNews = this.configurationService.properties.value.numberOfDisplayedSavedNews;
+    }
   }
 
   ngOnInit(): void {
@@ -31,6 +43,16 @@ export class SavedNewsComponent implements OnInit {
   clearModal() {
     this.newsInModal = null;
     this.isModalActive = false;
+  }
+
+  displayMore() {
+    this.numberOfDisplayedSavedNews += this.numberOfDisplayedSavedNews;
+  }
+
+  getConfigurationValues() {
+    this.configurationService.properties.subscribe(value => {
+      this.numberOfDisplayedSavedNews = value.numberOfDisplayedSavedNews;
+    })
   }
 
 }

@@ -8,13 +8,13 @@ import { ElectronService } from '../../core/services';
 export class ConfigurationService {
 
   public properties = new BehaviorSubject({
-    newsLimit: 6
+    newsLimit: 6,
+    numberOfDisplayedSavedNews: 5
   });
 
   constructor(private electronService: ElectronService) {
     if (electronService.isElectron) {
       this.initValues();
-
     }
   }
 
@@ -40,7 +40,7 @@ export class ConfigurationService {
           const res = JSON.parse(data.toString());
 
           if (err) console.log(err);
-          else console.log('udalo sie odczytac zawartosc pliku');
+          else console.log('Odczytano zawartość pliku konfiguracyjnego.');
           console.log(res);
           this.properties.next(res);
         })
@@ -51,7 +51,7 @@ export class ConfigurationService {
   saveChangesInFile() {
     this.fs.writeFile(this.fileName, JSON.stringify(this.properties.value), (err) => {
       if (err) console.log(err);
-      else console.log('udalo sie zapisac w pliku');
+      else console.log('Plik konfiguracyjny został zmieniony.');
     })
   }
 

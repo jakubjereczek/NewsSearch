@@ -42,7 +42,7 @@
                 <div class="box">
                     <ng-container *ngIf="!isChanging">
                         <div>
-                            <div class="columns">
+                            <div class="columns container">
                                 <ng-container *ngFor="let news of newsList; let i = index">
                                     <div class="column is-4 news_single_element"
                                         *ngIf="!news.isHidden && (i >= after && i < newsLimit+after)">

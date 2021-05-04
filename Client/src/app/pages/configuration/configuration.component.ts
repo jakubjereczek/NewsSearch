@@ -12,7 +12,8 @@ export class ConfigurationComponent implements OnInit {
   loading = true;
 
   properties = { // Domyslne wartości
-    newsLimit: 3,
+    newsLimit: 0,
+    numberOfDisplayedSavedNews: 0
   };
 
   constructor(private electronService: ElectronService,
@@ -26,6 +27,8 @@ export class ConfigurationComponent implements OnInit {
   getConfigurationValues() {
     this.configurationService.properties.subscribe(values => {
       this.properties = values;
+      console.log("Pobrano wartości!");
+      console.log(this.properties)
       this.loading = false;
     })
   }
@@ -34,17 +37,28 @@ export class ConfigurationComponent implements OnInit {
     const target = event.target as HTMLInputElement;
 
     if (Number(target.value) != this.properties.newsLimit) {
-      let value = Number(target.value);
-      if (value < 1) {
-        value = 1;
-      }
-      if (value > 10) {
-        value = 10;
-      }
+      let value = this.numberFromTheRange(Number(target.value));
       this.properties.newsLimit = value;
       this.configurationService.changeProperties(this.properties);
     }
   }
 
+  changeNumberOfDisplayedSavedNews(event: Event) {
+    const target = event.target as HTMLInputElement;
 
+    if (Number(target.value) != this.properties.numberOfDisplayedSavedNews) {
+      let value = this.numberFromTheRange(Number(target.value));
+      this.properties.numberOfDisplayedSavedNews = value;
+      this.configurationService.changeProperties(this.properties);
+    }
+  }
+
+  numberFromTheRange(a: number) {
+    if (a > 10) {
+      a = 10;
+    } else if (a < 0) {
+      a = 0;
+    }
+    return a;
+  }
 }
