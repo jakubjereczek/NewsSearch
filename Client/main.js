@@ -10,8 +10,13 @@ var args = process.argv.slice(1), serve = args.some(function (val) { return val 
 function createWindow() {
     var electronScreen = electron_1.screen;
     var size = electronScreen.getPrimaryDisplay().workAreaSize;
+    var iconPath = process.platform !== 'darwin'
+        ? 'src/assets/icons/favicon.ico'
+        : 'src/assets/icons/favicon.icns';
     // Create the browser window.
     win = new electron_1.BrowserWindow({
+        icon: path.join(__dirname, iconPath),
+        title: "NewsSearcher",
         x: 0,
         y: 0,
         width: size.width,

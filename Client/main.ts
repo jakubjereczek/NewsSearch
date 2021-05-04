@@ -14,8 +14,15 @@ function createWindow(): BrowserWindow {
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
+
+  const iconPath = process.platform !== 'darwin'
+    ? 'src/assets/icons/favicon.ico'
+    : 'src/assets/icons/favicon.icns';
+
   // Create the browser window.
   win = new BrowserWindow({
+    icon: path.join(__dirname, iconPath),
+    title: "NewsSearcher",
     x: 0,
     y: 0,
     width: size.width,
