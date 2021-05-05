@@ -1,4 +1,4 @@
-<section class="hero is-success inside_container">
+<section class="hero inside_container">
     <div class="hero-body">
         <p class="title">
             Konfiguracja
@@ -13,18 +13,17 @@
         <div class="column is-12">
             <div class="box">
                 <h5 class="title is-5">Ilość wyświetlanych elementów na jednej stronie w liscie newsów (1-10): </h5>
-                <input (input)="changeNewsLimit($event)" [value]="properties.newsLimit" class="input is-primary"
-                    type="number" placeholder="Primary input">
+                <input (change)="changeProperties()" [(ngModel)]="properties.newsLimit" class="input is-success"
+                    type="number">
             </div>
 
             <div class="box">
-                <h5 class="title is-5">Ilość wyświetlanych pojedyńczo elementów w sekcji zapisanych newsów (1-10)
+                <h5 class="title is-5">Ilośc elementów wyświetlanych grupowa w sekcji zapisanych newsów (1-10)
                 </h5>
-                <h6 class="subtitle is-6">(liczba
-                    rownież odpowiada liscie renderowanych elementów po naciśnięciu przycisku wyświetl więcej)</h6>
-                <input (input)="changeNumberOfDisplayedSavedNews($event)"
-                    [value]="properties.numberOfDisplayedSavedNews" class="input is-primary" type="number"
-                    placeholder="Primary input">
+                <h6 class="subtitle is-6">Wartość odpowiada rownież liczbie renderowanych elementów po naciśnięciu
+                    przycisku - Wyświetl więcej.</h6>
+                <input (change)="changeProperties()" [(ngModel)]="properties.numberOfDisplayedSavedNews"
+                    class="input is-success" type="number">
             </div>
         </div>
     </div>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ElectronService } from '../../core/services';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class ConfigurationService {
 
@@ -40,7 +41,7 @@ export class ConfigurationService {
           const res = JSON.parse(data.toString());
 
           if (err) console.log(err);
-          else console.log('Odczytano zawartość pliku konfiguracyjnego.');
+          else console.log('Odczytano zawartość pliku konfiguracyjnego.', res);
           console.log(res);
           this.properties.next(res);
         })
@@ -53,6 +54,10 @@ export class ConfigurationService {
       if (err) console.log(err);
       else console.log('Plik konfiguracyjny został zmieniony.');
     })
+  }
+
+  getProperties() {
+    return this.properties;
   }
 
 }

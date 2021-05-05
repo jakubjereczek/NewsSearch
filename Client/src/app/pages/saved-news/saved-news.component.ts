@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ElectronService } from '../../core/services';
 import News from '../../shared/models/news';
 import { ConfigurationService } from '../../shared/services/configuration.service';
@@ -12,12 +12,15 @@ import { SavedNewsService } from '../../shared/services/saved-news.service';
 })
 export class SavedNewsComponent implements OnInit {
 
+  subscription: Subscription;
+
   $savedNews: Observable<Array<News>>;
 
   isModalActive = false;
   newsInModal: News = null;
 
   numberOfDisplayedSavedNews = 0; // Ilość wyswietlanych elementów jednorazowo
+  displayed = 0;
 
   constructor(
     private savedNewsService: SavedNewsService,
@@ -46,13 +49,16 @@ export class SavedNewsComponent implements OnInit {
   }
 
   displayMore() {
-    this.numberOfDisplayedSavedNews += this.numberOfDisplayedSavedNews;
+    this.displayed += this.numberOfDisplayedSavedNews;
   }
 
   getConfigurationValues() {
-    this.configurationService.properties.subscribe(value => {
+    this.subscription = this.configurationService.properties.subscribe(value => {
       this.numberOfDisplayedSavedNews = value.numberOfDisplayedSavedNews;
     })
   }
 
+  ngOnDestroy() {
+    this.subscription && this.subscription.unsubscribe();
+  }
 }

@@ -17,7 +17,7 @@
 </ng-template>
 
 <ng-template #noErrors>
-    <section class="hero is-success inside_container">
+    <section class="hero inside_container">
         <div class="hero-body">
             <p class="title">
                 Lista newsów
@@ -29,35 +29,36 @@
         </div>
     </section>
     <section class="inside_container">
-        <h5 class="title is-5 has-text-white">Użyj wyszukiwarki by filtrować poniższe wyniki: </h5>
-        <div class="searcher">
-            <input #searcher (keyup)="onKeyUp(searcher.value)" class="input is-success" type="text"
-                placeholder="Wyszukaj względem słów kluczowych bądz fragmentu tekstu">
-        </div>
-    </section>
-    <section class="inside_container">
-        <div class="columns is-multiline">
+        <div class="columns">
             <div class="column is-12">
-                <h5 class="title is-5 has-text-white">Lista aktualnych newsów: </h5>
                 <div class="box">
+                    <h5 class="title is-5">Użyj wyszukiwarki by filtrować poniższe wyniki: </h5>
+                    <div class="searcher">
+                        <input #searcher (keyup)="onKeyUp(searcher.value)" class="input is-success" type="text"
+                            placeholder="Wyszukaj względem słów kluczowych bądz fragmentu tekstu">
+                    </div>
+                </div>
+            </div>
+            <div class="column is-12">
+                <div class="box">
+                    <h5 class="title is-5">Lista aktualnych newsów: </h5>
                     <ng-container *ngIf="!isChanging">
                         <div>
-                            <div class="columns container">
+                            <div class="columns">
                                 <ng-container *ngFor="let news of newsList; let i = index">
                                     <div class="column is-4 news_single_element"
                                         *ngIf="!news.isHidden && (i >= after && i < newsLimit+after)">
-                                        <div class="columns box" style="margin: 5px;">
+                                        <div class="columns box has-background-success">
                                             <div class="column is-12">
-                                                <p class="title">{{news.title}}</p>
+                                                <p class="title has-text-white">{{news.title}}</p>
                                             </div>
                                             <div class="news-content">
-                                                <p> {{news.description}}.</p>
+                                                <p class="has-text-white"> {{news.description}}.</p>
                                                 <div class="column is-12 news">
                                                     <img src="{{news.image_url}}">
                                                 </div>
                                                 <div class="content-button">
-                                                    <button
-                                                        class="button is-success flex is-light is-align-items-flex-end"
+                                                    <button class="button is-white"
                                                         (click)="openModal(news)">Więcej</button>
                                                 </div>
                                             </div>

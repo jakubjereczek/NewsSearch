@@ -1,4 +1,4 @@
-<section class="hero is-success inside_container">
+<section class="hero inside_container">
     <div class="hero-body">
         <p class="title">
             Zapisane newsy
@@ -9,18 +9,15 @@
     </div>
 </section>
 <section class="inside_container">
-    <h5 class="title is-5 has-text-white">Lista zapisanych newsów: </h5>
-</section>
-<section class="inside_container">
     <div class="columns">
-        <div class="column">
+        <div class="column is-12">
             <div class="box">
+                <h5 class="title is-5">Lista zapisanych newsów: </h5>
                 <div class="columns">
                     <ng-container *ngIf="($savedNews | async)?.length > 0; else noData">
                         <ng-container *ngFor="let news of ($savedNews | async); let i = index;">
-
-                            <div class="column is-12" *ngIf="i < numberOfDisplayedSavedNews">
-                                <div class="card">
+                            <div class="column is-12" *ngIf="i < numberOfDisplayedSavedNews + displayed">
+                                <div class="card has-background-success">
                                     <div class="card-content">
                                         <div class="media">
                                             <div class="media-left">
@@ -29,8 +26,8 @@
                                                 </figure>
                                             </div>
                                             <div class="media-content">
-                                                <p class="title is-4">{{news.title}}</p>
-                                                <button class="button is-success flex is-light is-align-items-flex-end"
+                                                <p class="title is-4 has-text-white">{{news.title}}</p>
+                                                <button class="button is-white flex is-align-items-flex-end"
                                                     (click)="openModal(news)">Więcej</button>
                                             </div>
                                         </div>
@@ -40,7 +37,7 @@
                         </ng-container>
                         <div class="button_container">
                             <button class="button is-success"
-                                *ngIf="($savedNews | async)?.length > numberOfDisplayedSavedNews"
+                                *ngIf="($savedNews | async)?.length > numberOfDisplayedSavedNews + displayed"
                                 (click)="displayMore()">
                                 Wyswietl więcej
                             </button>
@@ -53,9 +50,12 @@
                         </div>
                     </ng-template>
                 </div>
+
+
             </div>
         </div>
     </div>
+
 </section>
 
 <div *ngIf="isModalActive">
