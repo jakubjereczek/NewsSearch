@@ -12,6 +12,8 @@ import { HttpService } from './shared/services/http.service';
 })
 export class AppComponent {
 
+  isMobileMenuActive = false;
+
   constructor(
     private router: Router,
     private electronService: ElectronService,
@@ -61,6 +63,15 @@ export class AppComponent {
 
   openGithub() {
     window.open('https://github.com/jakubjereczek/NewsSearch', '_blank', 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
+  }
+
+  onMenuMobileClick() {
+    this.isMobileMenuActive = !this.isMobileMenuActive;
+    console.log(this.isMobileMenuActive);
+  }
+
+  getMenuValue() {
+    return this.isMobileMenuActive ? "Zamknij menu" : "Otworz menu";
   }
 
 }

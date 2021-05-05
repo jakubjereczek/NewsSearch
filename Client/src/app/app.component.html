@@ -1,5 +1,5 @@
 <div class="container is-flex is-fluid">
-    <aside class="menu">
+    <aside class="menu" [ngClass]="isMobileMenuActive ? 'active' : ''">
         <a class="navbar-item" routerLink="/">
             <img src="/assets/logo.png" width="180" height="42">
         </a>
@@ -16,14 +16,16 @@
             Konfiguracja
         </p>
         <ul class="menu-list">
-
             <li *ngIf="electronService.isElectron"><a routerLink="/configuration"
                     routerLinkActive="has-background-success has-text-white">Konfiguracja
                     widoku wyświetlanych newsów</a></li>
             <li (click)="openGithub()"><a>Kod Github</a></li>
         </ul>
     </aside>
-    <main class="">
+    <main [ngClass]="isMobileMenuActive ? 'active' : ''">
+        <div class="button" [ngClass]="isMobileMenuActive ? 'active' : ''" (click)="onMenuMobileClick()">
+            {{getMenuValue()}}
+        </div>
         <router-outlet></router-outlet>
     </main>
     <footer>
