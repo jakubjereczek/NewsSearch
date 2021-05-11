@@ -34,16 +34,21 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 ## Stack technologiczny
 
 ### Client
-- electron.js
-- angular (https://github.com/maximegris/angular-electron)
-- bulma css framework
+- electron.js 1.0.4
+- angular 11 (https://github.com/maximegris/angular-electron)
+- bulma css framework 0.9.2
 - scss 
-- node.js
+- node.js 12.18.1^
 
 ### Server
-- node.js,
-- express.js,
-- crawler
+- node.js 12.18.1^, 
+- express.js 1.0.0^,
+- crawler 1.3.0
+
+## Architektura uruchomieniowa
+- Visual Studio Code jako edytor kodu,
+- Aplikacja klienta dostępna na systemy operacyjne: macOS, Windows oraz Linux,
+- Server uruchomiony na wieloplatformowym środowisku uruchomieniowym
 
 
 
