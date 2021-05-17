@@ -44,6 +44,7 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 - node.js 12.18.1^, 
 - express.js 1.0.0^,
 - crawler 1.3.0
+- jest (testing)
 
 ## Architektura uruchomieniowa
 - Visual Studio Code jako edytor kodu,

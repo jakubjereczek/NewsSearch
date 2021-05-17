@@ -28,7 +28,7 @@ const news_get_by_id = (req, res, next) => {
 
 const news_get_all = (req, res, next) => {
 
-    console.log(newsList)
+    // console.log(newsList)
 
     res.status(200).json({
         message: "News data",
