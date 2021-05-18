@@ -8,10 +8,12 @@ import { ElectronService } from '../../core/services';
 })
 export class ConfigurationService {
 
-  public properties = new BehaviorSubject({
+  defaultValues = {
     newsLimit: 6,
     numberOfDisplayedSavedNews: 5
-  });
+  }
+
+  public properties = new BehaviorSubject(this.defaultValues);
 
   constructor(private electronService: ElectronService) {
     if (electronService.isElectron) {

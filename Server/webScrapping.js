@@ -29,15 +29,13 @@ const scrapping = new Crawler({
             newsList = new NewsList();
 
             // W TAKI SPOSOB DODAJESZ COŚ DO LISTY
-            newsList.add(new News({
-                id: lastId
-            }))
+            newsList.add(new News({}))
         }
     }
 });
 
 scrapping.queue([
-    `https://ogloszenia.trojmiasto.pl/praca-zatrudnie`
+    `https://google.com`
 ]);
 
 

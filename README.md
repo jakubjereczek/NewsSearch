@@ -38,7 +38,9 @@ Nie ujeliśmy kategorii zależności od systemu i oprogramowania bo jest to niei
 - angular 11 (https://github.com/maximegris/angular-electron)
 - bulma css framework 0.9.2
 - scss 
-- node.js 12.18.1^
+- node.js 12.18.1^,
+- jest (testing)
+
 
 ### Server
 - node.js 12.18.1^, 
