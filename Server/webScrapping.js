@@ -1,43 +1,109 @@
 const Crawler = require("crawler");
+var uniqid = require('uniqid');
 
-const { News, NewsList } = require('./models/News');
+const { News, NewsList } = require("./models/News");
 
-// Lista w którym ładować będziemy dane.
-let newsList = new NewsList([{
-    id: 99,
-    title: "USA: CDC i FDA apelują o wstrzymanie szczepień preparatem Johnson & Johnson.",
-    description: "Obecnie nie ma żadnego związku między stwierdzonymi zakrzepami krwi a podaniem szczepionki przeciw COVID-19 firmy Johnson & Johnson - oświadczyła zaledwie kilka dni temu Amerykańska Agencja Żywności i Leków (FDA). Dziś agencja wraz z CDC wezwały do ​​natychmiastowego przerwania stosowania preparatu. Powodem jest sześć przypadków zakrzepów u kobiet.",
-    category: "Zdrowie",
-    link: "https://www.medonet.pl/porozmawiajmyoszczepionce/szczepionka-na-covid-19,szczepionka-j-j-i-zakrzepy--fda-i-cdc-chca-przerwac-podawanie-preparatu,artykul,50687083.html",
-    date: new Date(),
-    image_url: "https://ocdn.eu/pulscms-transforms/1/666k9kpTURBXy9kM2RhMmZhN2M1MDI4NGMwOGQ2MmZlYTBiOGE3YjI4NC5qcGeSlQMAH80D6M0CMpMFzQMCzQGQgaEwBQ"
-}]);
-// Jest w niej jeden przykladowy Obiekt, by zachować format dobry obiektu
+let newsList = new NewsList([]);
 
-const scrapping = new Crawler({
-    maxConnections: 10,
-    // This will be called for each crawled page
-    callback: function (error, res, done) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Wykonuje scrapping');
-            var $ = res.$;
-            // $ is Cheerio by default
+const scrapperDgp = new Crawler({
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      var $ = res.$;
 
-            // Wyczyszczenie listy przed scrappingiem nowym
-            newsList = new NewsList();
-
-            // W TAKI SPOSOB DODAJESZ COŚ DO LISTY
-            newsList.add(new News({}))
-        }
+      const dgpElements = $("div[class='listItem listItemSolr itarticle']");
+      for (let i = 0; i < dgpElements.length; i++) {
+        const el = dgpElements[i].children[0];
+        ogloszenieDgp = {
+          id: uniqid(),
+          title:el.next.attribs.title,
+          desc: el.next.children[1].next.next.children[3].children[0].data,
+          link: el.next.attribs.href,          
+          category: "Dziennik Gazeta Prawna",
+          date: new Date(),
+          image_url: el.next.children[1].children[1].attribs.src
+        };
+        newsList.add(new News(ogloszenieDgp));
+      }
     }
+    done();
+  },
 });
 
-scrapping.queue([
-    `https://google.com`
-]);
+const scrapperGazeta = new Crawler({
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      var $ = res.$;
 
+      const gazetaElements = $("li.entry");
+      for (let i = 4; i < gazetaElements.length; i++) {
+        const el = gazetaElements[i];
+        ogloszenieGazeta = {
+          id: uniqid(),
+          title: el.children[1].attribs.title,
+          desc: el.children[0].next.next.next.children[4].prev.children[0].data,
+          link: el.children[1].attribs.href,
+          category: "Gazeta.pl",
+          date: new Date(),
+          image_url:
+            el.children[0].next.children[1].children[1].attribs["data-src"],
+        };
+        newsList.add(new News(ogloszenieGazeta));
+      }
+    }
+  },
+});
 
-// Wystawiamy na zewnętrz tylko liste - zostanie pobrana w przypadku zapytania do API.
+const scrapperTokfm = new Crawler({
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Wykonuje scrapping");
+      var $ = res.$;
+
+      const tokfmEvenElements = $("li[class='entry  even article']");
+      const tokFmOddElements = $("li[class='entry  odd article']");
+      for (let i = 0; i < tokfmEvenElements.length; i++) {
+        const el = tokfmEvenElements[i];
+        ogloszenieTokfmF = {
+          id: uniqid(),
+          title: el.children[2].children[0].attribs.title,
+          desc: el.children[4].children[0].data,
+          link: el.children[2].children[0].attribs.href,
+          category: "Wiadomości Tok-FM",
+          date: new Date(),
+          image_url: el.children[1].children[1].children[0].children[1].children[1].attribs.src
+        };
+        newsList.add(new News(ogloszenieTokfmF));
+      }
+      for (let i = 0; i < tokFmOddElements.length; i++) {
+        const el = tokFmOddElements[i];
+        ogloszenieTokfmS = {
+          id: uniqid(),
+          title: el.children[2].children[0].attribs.title,
+          desc: el.children[4].children[0].data,
+          link: el.children[2].children[0].attribs.href,
+          category: "Wiadomości Tok-FM",
+          date: new Date(),
+          image_url: el.children[1].children[1].children[0].children[1].children[1].attribs.src
+        };
+        newsList.add(new News(ogloszenieTokfmS));
+      }
+    }
+  },
+});
+
+scrapperGazeta.queue(["https://wiadomosci.gazeta.pl"]);
+scrapperDgp.queue(["https://www.gazetaprawna.pl/wiadomosci"]);
+scrapperTokfm.queue(["https://www.tokfm.pl/Tokfm/0,103094.html"]);
 module.exports = newsList;
