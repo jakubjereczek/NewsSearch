@@ -57,8 +57,24 @@ Nie ujeliœmy kategorii zale¿noœci od systemu i oprogramowania bo jest to nieisto
 - Aplikacja klienta dostêpna na systemy operacyjne: macOS, Windows oraz Linux uruchioma na otwartym silniku Chrominium 
 (otwarty projekt przegl¹darki internetowej, z którego kod Ÿród³owy czerpi¹ miêdzy innymi Google Chrome, slu¿y do do wyœwietlania treœci internetowych),
 
-#### Testy
+## Testy
 Testowanie poprawnoœci funkcjanalnoœci serwera odby³o siê za pomoc¹ frameworka jest.js
 ![jestjs](screenshots/tests.png)
 Natomiast testowanie aplikacji odby³o siê przy pomocy platformmy do automatyzacji testów Leapwork.
 ![leapwork](screenshots/tests2.png)
+
+## Diagramy 
+#### Diagram przypadków u¿ycia 
+![use case diagram](screenshots/use_case_diagram.png)
+![use case diagram](screenshots/open_app_diagram.png)
+
+## Screenshoty
+![Application view](screenshots/application1.png)
+![Application view](screenshots/application2.png)
+![Application view](screenshots/application3.png)
+![Application view](screenshots/application4.png)
+![Application view](screenshots/application5.png)
+![Application view](screenshots/application6.png)
+![Application view](screenshots/application7.png)
+![Application view](screenshots/application8.png)
+
