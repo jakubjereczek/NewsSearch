@@ -1,35 +1,35 @@
-(projekt zaliczeniowy przedmiotu InÅ¼ynieria Oprogramowania)
+(projekt zaliczeniowy przedmiotu In¿ynieria Oprogramowania)
 # News Search
 
-#### News Search - aplikacja wyszukiwujÄ…ca newsy!
-> Aplikacja wyszukiwuje newsy z trzech najwiÄ™kszych portali (za pomocÄ… Web Scrappingu) i zestawia je w desktopowej aplikacji. Aplikacja umoÅ¼liwia wyÅ›wietlanie listy newsÃ³w, fitrowanie jej, wyÅ›wietlanie szczegÃ³Å‚owych informacji - wraz z opcjÄ… przejÅ›cia do strony na ktÃ³rej news zostaÅ‚ upublikowany oraz dodanie do listy ulubionych. W aplikacji dostÄ™pna jest rÃ³wnieÅ¼ maÅ‚a konfiguracja - dane tej konfiguracji zapisane sÄ… w pliku oraz Å‚adowane przy kaÅ¼dym uruchomieniu aplikacji.
+#### News Search - aplikacja wyszukiwuj¹ca newsy!
+> Aplikacja wyszukiwuje newsy z trzech najwiêkszych portali (za pomoc¹ Web Scrappingu) i zestawia je w desktopowej aplikacji. Aplikacja umo¿liwia wyœwietlanie listy newsów, fitrowanie jej, wyœwietlanie szczegó³owych informacji - wraz z opcj¹ przejœcia do strony na której news zosta³ upublikowany oraz dodanie do listy ulubionych. W aplikacji dostêpna jest równie¿ ma³a konfiguracja - dane tej konfiguracji zapisane s¹ w pliku oraz ³adowane przy ka¿dym uruchomieniu aplikacji.
 
-## Specyfikacja wymagaÅ„
+## Specyfikacja wymagañ
 
 1) **Wymagania funkcjonalne** 
 
-Nie ujeliÅ›my kategorii zaleÅ¼noÅ›ci od systemu i oprogramowania bo jest to nieistotne w naszyym projekcie. Nasza aplikacja jest multiplatformowa â€“ dziaÅ‚ajÄ…ca niezaleÅ¼nie od systemu operacyjnego. Jest to aplikacja desktopowa nieposiadajÄ…ca dodatkowego oprogramowania potrzebnego do uruchomienia aplikacji.
+Nie ujeliœmy kategorii zale¿noœci od systemu i oprogramowania bo jest to nieistotne w naszyym projekcie. Nasza aplikacja jest multiplatformowa – dzia³aj¹ca niezale¿nie od systemu operacyjnego. Jest to aplikacja desktopowa nieposiadaj¹ca dodatkowego oprogramowania potrzebnego do uruchomienia aplikacji.
 
-|**Identyfikator**|**Nazwa krÃ³tka**|**Opis**|**Priorytet**|
+|**Identyfikator**|**Nazwa krótka**|**Opis**|**Priorytet**|
 | :-: | :-: | :-: | :-: |
-|W\_FUN\_1|WyÅ›wietlanie listy|Aplikacja powinien umoÅ¼liwiÄ‡ wyÅ›wietlenie listy wiadomoÅ›ci (ostatnie 50 wzglÄ™dem danej kategorii oraz stron internowej) o prace wzglÄ™dem daty dodania do portalu. Jako uÅ¼ytkownik systemu otrzymam dostÄ™p do ogÅ‚oszeÅ„ na bieÅ¼Ä…co.|1 (wymagane)|
-|W\_FUN\_2|Webscrapping danych| Serwer powinien na rzÄ…dzanie klienta wykonaÄ‡ Web Scrapping stron aby odesÅ‚aÄ‡ odpowiedz z aktualnÄ… listÄ… wiadomoÅ›ci. Jako uÅ¼ytkownik mogÄ™ na bieÅ¼Ä…co spradzaÄ‡ listÄ™ ogÅ‚oszeÅ„ o pracÄ™ odÅ›wieÅ¼ajaÄ‡ listÄ™ za pomocÄ… przycisku. |1 (wymagane)|
-|W\_FUN\_3|Lista ulubionych| Aplikacja powinna umoÅ¼liwiÄ‡ dodawanie wiadomoÅ›ci do ulubionych aby mieÄ‡ dostÄ™p do niego poÅºniej (zapisany w aplikacji). Jako uÅ¼ytkownik mam dostÄ™p do zapisanych i w kaÅ¼dej chwili mogÄ™ je wyÅ›wietliÄ‡. |2 (oczekiwana)|
-|W\_FUN\_4|Filtrowanie | Aplikacja umoÅ¼liwia filtrowanie rezultatÃ³w Jako uÅ¼ytkownik mam dostep do filtrowania stron internetowych. |2 (oczekiwana)|
-|W\_FUN\_5|PodglÄ…d wiadomoÅ›ci| Aplikacja umoÅ¼liwa podglÄ…d wiadomoÅ›ci. Jako uÅ¼ytkownik mam dostÄ™p do przycisku wyÅ›wieltajÄ…cego caÅ‚y opis ogÅ‚oszenia. |2 (oczekiwana)|
-|W\_FUN\_6|PrzejÅ›cie do wiadomoÅ›ci oryginalnej|Aplikacja umoÅ¼liwia przejÅ›cie z wiadomoÅ›ci wyÅ›wietlanej w aplikacji do oryginalnego ogÅ‚oszenia. Jako uÅ¼ytkownik mogÄ™ przejÅ›Ä‡ do strony wyÅ›wietlajÄ…cej ogÅ‚osznie.|3 (dodatkowa)|
-|W\_FUN\_7|Kontrola blÄ™dÃ³w dotyczÄ…ca pobierania danych z serwera.|Aplikacja wyÅ›wietli informacje gdy niemoÅ¼liwe bÄ™dzie pobranie danych z serwera udostÄ™pniajac przycisk â€“ sprÃ³buj ponownie.|2 (oczekiwana)|
-|W\_FUN\_8|Konfiguracja |Aplikacja umoÅ¼liwia konfigurowanie opcji wyÅ›wietlania newsÃ³w - zapis konfiguracji w pliku json.|3 (dodatkowa)|
+|W\_FUN\_1|Wyœwietlanie listy|Aplikacja powinien umo¿liwiæ wyœwietlenie listy wiadomoœci (ostatnie 50 wzglêdem danej kategorii oraz stron internowej) o prace wzglêdem daty dodania do portalu. Jako u¿ytkownik systemu otrzymam dostêp do og³oszeñ na bie¿¹co.|1 (wymagane)|
+|W\_FUN\_2|Webscrapping danych| Serwer powinien na rz¹dzanie klienta wykonaæ Web Scrapping stron aby odes³aæ odpowiedz z aktualn¹ list¹ wiadomoœci. Jako u¿ytkownik mogê na bie¿¹co spradzaæ listê og³oszeñ o pracê odœwie¿ajaæ listê za pomoc¹ przycisku. |1 (wymagane)|
+|W\_FUN\_3|Lista ulubionych| Aplikacja powinna umo¿liwiæ dodawanie wiadomoœci do ulubionych aby mieæ dostêp do niego poŸniej (zapisany w aplikacji). Jako u¿ytkownik mam dostêp do zapisanych i w ka¿dej chwili mogê je wyœwietliæ. |2 (oczekiwana)|
+|W\_FUN\_4|Filtrowanie | Aplikacja umo¿liwia filtrowanie rezultatów Jako u¿ytkownik mam dostep do filtrowania stron internetowych. |2 (oczekiwana)|
+|W\_FUN\_5|Podgl¹d wiadomoœci| Aplikacja umo¿liwa podgl¹d wiadomoœci. Jako u¿ytkownik mam dostêp do przycisku wyœwieltaj¹cego ca³y opis og³oszenia. |2 (oczekiwana)|
+|W\_FUN\_6|Przejœcie do wiadomoœci oryginalnej|Aplikacja umo¿liwia przejœcie z wiadomoœci wyœwietlanej w aplikacji do oryginalnego og³oszenia. Jako u¿ytkownik mogê przejœæ do strony wyœwietlaj¹cej og³osznie.|3 (dodatkowa)|
+|W\_FUN\_7|Kontrola blêdów dotycz¹ca pobierania danych z serwera.|Aplikacja wyœwietli informacje gdy niemo¿liwe bêdzie pobranie danych z serwera udostêpniajac przycisk – spróbuj ponownie.|2 (oczekiwana)|
+|W\_FUN\_8|Konfiguracja |Aplikacja umo¿liwia konfigurowanie opcji wyœwietlania newsów - zapis konfiguracji w pliku json.|3 (dodatkowa)|
 
 2) **Wymagania niefuncjonalne**
 
-|**Identyfikator**|**Podkategoria**|**Nazwa krÃ³tka**|**Opis**|**Priorytet**|
+|**Identyfikator**|**Podkategoria**|**Nazwa krótka**|**Opis**|**Priorytet**|
 | :- | :- | :- | :- | :- |
-|W\_NIEFUN\_1|3 - wydajnoÅ›Ä‡|Zapewnienie wydajnoÅ›ci|Zapewnienie wydajnoÅ›ci oraz niezawadnoÅ›ci oprogramowania. Zapewnienie najkrÃ³tszego Å‚adowania danych.|1 (wymagane)|
-|W\_NIEFUN\_2|2 - bezpieczeÅ„stwo|PoufnoÅ›Ä‡ danych|Wszelkie dane zabezpieczone w aplikacji. Brak wypÅ‚ywania danych na zewnÄ…trz. Przechowywanie tylko na dysku uÅ¼ytkownika.|1 (wymagane)|
-|W\_NIEFUN\_3|1 - projektowe|WolnoÅ›Ä‡ oprogramowania|Dostarczane przez nas oprogamowanie jest wolne, kod jest otwarty i ogÃ³lnodostepny|1 (wymagane)|
-|W\_NIEFUN\_4|1 - projektowe|KompatybilnoÅ›Ä‡ |Oprogramowanie klienckie dostÄ™pne i dziaÅ‚ajÄ…ce na konkurencyjnych systemach operacyjnych|2 (oczekiwane)|
-|W\_NIEFUN\_5|4 â€“ ergonomia UI |Design|Prosty, lecz dobrze wyglÄ…dajÄ…cy interfejs uÅ¼ytkownika, ktÃ³ry w sposÃ³b intuicyjny pozwoli na wykorzystywanie funkcji.|3 (dodatkowa)|
+|W\_NIEFUN\_1|3 - wydajnoœæ|Zapewnienie wydajnoœci|Zapewnienie wydajnoœci oraz niezawadnoœci oprogramowania. Zapewnienie najkrótszego ³adowania danych.|1 (wymagane)|
+|W\_NIEFUN\_2|2 - bezpieczeñstwo|Poufnoœæ danych|Wszelkie dane zabezpieczone w aplikacji. Brak wyp³ywania danych na zewn¹trz. Przechowywanie tylko na dysku u¿ytkownika.|1 (wymagane)|
+|W\_NIEFUN\_3|1 - projektowe|Wolnoœæ oprogramowania|Dostarczane przez nas oprogamowanie jest wolne, kod jest otwarty i ogólnodostepny|1 (wymagane)|
+|W\_NIEFUN\_4|1 - projektowe|Kompatybilnoœæ |Oprogramowanie klienckie dostêpne i dzia³aj¹ce na konkurencyjnych systemach operacyjnych|2 (oczekiwane)|
+|W\_NIEFUN\_5|4 – ergonomia UI |Design|Prosty, lecz dobrze wygl¹daj¹cy interfejs u¿ytkownika, który w sposób intuicyjny pozwoli na wykorzystywanie funkcji.|3 (dodatkowa)|
 
 ## Stack technologiczny
 
@@ -39,7 +39,6 @@ Nie ujeliÅ›my kategorii zaleÅ¼noÅ›ci od systemu i oprogramowania bo jest to niei
 - bulma css framework 0.9.2
 - scss 
 - node.js 12.18.1^,
-- jest (testing)
 
 
 ### Server
@@ -48,10 +47,18 @@ Nie ujeliÅ›my kategorii zaleÅ¼noÅ›ci od systemu i oprogramowania bo jest to niei
 - crawler 1.3.0
 - jest (testing)
 
-## Architektura uruchomieniowa
+## Architektura 
+#### Architektura rozwoju
 - Visual Studio Code jako edytor kodu,
-- Aplikacja klienta dostÄ™pna na systemy operacyjne: macOS, Windows oraz Linux,
-- Server uruchomiony na wieloplatformowym Å›rodowisku uruchomieniowym
+- Leapwork (do testów Klienta)
 
+#### Architektura uruchomieniowa
+- Serwer uruchomiony na wieloplatformowym œrodowisku uruchomieniowym Node.js,
+- Aplikacja klienta dostêpna na systemy operacyjne: macOS, Windows oraz Linux uruchioma na otwartym silniku Chrominium 
+(otwarty projekt przegl¹darki internetowej, z którego kod Ÿród³owy czerpi¹ miêdzy innymi Google Chrome, slu¿y do do wyœwietlania treœci internetowych),
 
-
+#### Testy
+Testowanie poprawnoœci funkcjanalnoœci serwera odby³o siê za pomoc¹ frameworka jest.js
+![jestjs](screenshots/tests.png)
+Natomiast testowanie aplikacji odby³o siê przy pomocy platformmy do automatyzacji testów Leapwork.
+![leapwork](screenshots/tests2.png)
